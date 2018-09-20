@@ -1,0 +1,11 @@
+.form {
+	width: 40%;
+	margin: auto;
+}
+.title {
+	margin-bottom: 30px;
+}
+.caption {
+	display: flex;
+	justify-content: space-between;
+}

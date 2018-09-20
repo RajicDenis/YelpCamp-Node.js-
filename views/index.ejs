@@ -1,0 +1,35 @@
+<% include include/header %>
+
+<div class="container">
+
+	<header class="jumbotron d-flex flex-column align-items-center">
+		<h1>Welcome to YelpCamp</h1>
+		<p>View our campgrounds from all over the world!</p>
+		<p>
+			<a class="btn btn-primary btn-lg" href="/campgrounds/new">Add Campground</a>
+		</p>
+	</header>
+
+	<div class="row">
+	
+		<% campgrounds.forEach(function(camp) { %>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnail">
+					<a href="/campgrounds/<%= camp.id %>"><img src="<%= camp.image %>"></a>
+		
+					<div class="caption text-center">
+						<form action="/campgrounds/<%= camp.id %>?_method=DELETE" method="POST" id="del_form">
+							<a href="#" onclick="document.getElementById('del_form').submit();"><i class="fas fa-trash-alt fa-2x"></i></a>
+						</form>
+						
+						<h4><%= camp.name %></h4>
+						<a href="/campgrounds/<%= camp.id %>/edit"><i class="fas fa-edit fa-2x"></i></a>
+					</div>
+				</div>
+			</div>
+		<% }) %>
+
+	</div>
+</div>
+
+<% include include/footer %>
